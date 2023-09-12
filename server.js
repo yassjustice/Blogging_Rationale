@@ -5,7 +5,7 @@ const bodyparser = require('body-parser');
 const { body, validationResult } = require('express-validator');
 const xss = require('xss');
 const axios = require('axios')
-const users = require('../data/db.json')
+const users = require('./Models/db.json')
 const jwt = require('jsonwebtoken')
 const secret = 'YassirHakimi'
 const cookies = require('cookie-parser')
@@ -14,11 +14,19 @@ const bcrypt = require('bcrypt');
 const PORT = process.env.PORT || 7500;
 
 
+// middleware
+app.use(express.static('public'))
+app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(bodyparser.json());
+app.use(cookies())
+app.use(express.static('uploads'))
+app.use(express.urlencoded({ extended: true }))
 
 
-
-
-
+// Load routes
+const routes = require('./Routes');
+app.use('/', routes);
 
 
 

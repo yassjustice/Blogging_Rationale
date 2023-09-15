@@ -4,11 +4,16 @@ const {Add_Blog, Delete_Blog, Update_Blog, Read_Blog} = require('../Api/blogapi'
 //Create
 exports.createBlog = (req,res)=>{
     //getting blog info from user
-    const{title,description,author}= req.body;
+    const {name} = req.user
+    console.log(req.file)
+
+
+    const{title,desc,image}= req.body;
     const newBlog = {
-        title,
-        description,
-        author
+        title : title,
+        desc : desc,
+        author: name,
+        image: req.file.filename
     }
     Add_Blog(newBlog);
     res.end();

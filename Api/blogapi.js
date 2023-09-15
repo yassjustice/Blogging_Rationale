@@ -1,6 +1,6 @@
 const axios = require('axios');
 const api = axios.create({
-    baseURL:'http://localhost:7500/blogs',
+    baseURL:'http://localhost:3000/blogs',
     Headers:{
         'Content-Type': 'application/json'
     }

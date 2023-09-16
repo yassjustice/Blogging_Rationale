@@ -119,6 +119,24 @@
       "email": "",
       "name": "",
       "id": 20
+    },
+    {
+      "password": "$2b$10$abfuDG1PO4Eqo86OvwJw0uslrhMf2u9zEOUgJNOhOQ0pKcarAgn2m",
+      "email": "yousra@g.com",
+      "name": "yousra",
+      "id": 21
+    },
+    {
+      "password": "$2b$10$/TzIYPZ6vdNni0YzSIIMLu1gWjSbYt7T9uJaivG0M9gDJrS4Ob6Tu",
+      "email": "yousra@g.com",
+      "name": "yousra1",
+      "id": 22
+    },
+    {
+      "password": "$2b$10$/nPXXQj03uQFnPd2sBWSQeZkvS/JmRU8J8nsL1IJRS9260FIWOWwK",
+      "email": "yass@yass",
+      "name": "yass",
+      "id": 23
     }
   ],
   "Blogs": [
@@ -159,6 +177,92 @@
       "author": "bad",
       "image": "1694694792358-004.png",
       "id": 8
+    },
+    {
+      "title": "yassir",
+      "desc": "Hakimi",
+      "author": "happy",
+      "image": "1694890242136-Adam_Serene_depiction_of_a_traditional_teepee_standing_tall_aga_f4f53b52-c22e-45d4-9335-fef71405edbe.png",
+      "id": 9
+    },
+    {
+      "title": "hihi",
+      "desc": "hoho",
+      "image": "1694887044551-Adam_Serene_depiction_of_a_traditional_teepee_standing_tall_aga_f4f53b52-c22e-45d4-9335-fef71405edbe.png",
+      "id": 10
+    },
+    {
+      "title": "hahahaah",
+      "desc": "hohihihihih",
+      "image": "1694887227747-atzar._a_conference_for_enterprise_asset_management_with_speake_343cc59e-23b2-4c3a-bf80-0ca9416b00d3.png",
+      "id": 11
+    },
+    {
+      "title": "yassir",
+      "desc": "yassir",
+      "image": "1694886916960-Adam_Serene_depiction_of_a_traditional_teepee_standing_tall_aga_f4f53b52-c22e-45d4-9335-fef71405edbe.png",
+      "id": 12
+    },
+    {
+      "title": "lolol",
+      "desc": "fdeqeqfedf",
+      "image": "1694886192846-Adorable_indoor_library_multiple_levels_air_plants_hanging_indo_8a83a10c-f315-48b6-9c4f-9981aec77a01.png",
+      "id": 13
+    },
+    {
+      "title": "csdwcsqc",
+      "desc": "s<csqcdqs",
+      "author": "yousra",
+      "image": "1694785835652-bluefairy74_cross-section_of_a_ziggurat_with_eight_plateaus_and_26c2e4d9-4b22-4352-942f-0ef88b66ebe3.png",
+      "id": 15
+    },
+    {
+      "title": "blog1",
+      "desc": "This code creates a new array yassirBlogs that contains only the blogs where the author is \"yassir\". Remember to replace 'yassir' with the actual author name you're looking for.\r\n\r\nIf you want to perform this operation on the server side (e.g., in Node.js), you would typically do this within an HTTP route handler.\r\n\r\nIf you have any further questions or need additional assistance, feel free to let me know!",
+      "author": "yass",
+      "image": "1694872340738-cayetanadesigns_create_a_livign_room_with_Statement_Furniture_C_fbd92706-186c-4f92-9494-06e7967b4f84.png",
+      "id": 17
+    },
+    {
+      "title": "dddddddddd",
+      "desc": "qzdzdzdqz",
+      "author": "yass",
+      "image": "1694875947218-chefgoldblum_logo_for_blog_style_the_logo_will_have_shelves_tha_f8d6b39a-f8b6-4f0f-a790-bca273c92f3e.png",
+      "id": 18
+    },
+    {
+      "title": "qzdzdqzd",
+      "desc": "dqzdqzdzqdzqqdz",
+      "author": "yass",
+      "image": "1694875958021-Doctor_Dude_420_Design_an_illustration_of_Annalena_Baerbocks_li_d636dc50-3fdd-4bfb-ab6c-fcd876ffb170.png",
+      "id": 19
+    },
+    {
+      "title": "Yousra",
+      "desc": "New 1",
+      "image": "1694885847381-atzar._a_conference_for_enterprise_asset_management_with_speake_71c1634d-497b-46f6-bba2-e18208c6619e.png",
+      "id": 20
+    },
+    {
+      "title": "Yousra",
+      "desc": "Yousra",
+      "author": "happy",
+      "image": "1694890488240-a2ogawa_No_characters_single_background._The_scene_takes_place__92374ce5-a9ee-4f2a-9026-e33330ab9fc5.png",
+      "id": 21
+    },
+    {
+      "title": "zqdqzdqzd",
+      "desc": "dqzdqzdqzd",
+      "author": "happy",
+      "image": "1694890311588-chefgoldblum_logo_for_blog_style_the_logo_will_have_shelves_tha_f8d6b39a-f8b6-4f0f-a790-bca273c92f3e.png",
+      "id": 22
+    },
+    {
+      "title": "dqdqzdq",
+      "desc": "ddqzdqdqd",
+      "author": "happy",
+      "image": "1694890319930-cayetanadesigns_create_a_livign_room_with_Statement_Furniture_C_fbd92706-186c-4f92-9494-06e7967b4f84.png",
+      "id": 23
     }
   ]
 }

@@ -10,8 +10,13 @@ const secret = 'YassirHakimi'
 const cookies = require('cookie-parser')
 const multer = require('multer')
 // const bcrypt = require('bcrypt');
+const cors = require('cors');
 const PORT = process.env.PORT || 7500;
 
+
+var corsOptions = {
+  origin : ['http://localhost:3000']
+}
 
 // middleware
 app.use(express.static('public'))
@@ -21,7 +26,7 @@ app.use(bodyparser.json());
 app.use(cookies())
 app.use(express.static('uploads'))
 app.use(express.urlencoded({ extended: true })) 
-
+app.use(cors())
 
 // Load routes
 const routes = require('./Routes');

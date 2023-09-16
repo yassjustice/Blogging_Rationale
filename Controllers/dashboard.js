@@ -6,7 +6,7 @@ const dashrouter = express.Router();
 dashrouter.get('/', authenticate,(req, res) => {
     const user = req.user;
     const head = 'Dashboard';
-    console.log(user);
+    // console.log(user);
     
     const data = {
       email: user.email,

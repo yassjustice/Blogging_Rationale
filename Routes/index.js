@@ -8,10 +8,12 @@ const dashrouter = require('../Controllers/dashboard');
 const editRouter = require('../Controllers/editBlog');
 const loginRouter = require('../Controllers/login');
 const RegisterRouter = require('../Controllers/register');
-
+const myBlogs = require('../Controllers/myblogs');
 const logoutRouter = require('../Controllers/logout');
 const addBrouter = require('../Controllers/addblog');
-const { createBlog, getBlog, updateBlog, deleteBlog } = require('../Controllers/blog');
+const { createBlog, getBlog, updateBlog, deleteBlog, getmyBlog } = require('../Controllers/blog');
+const preventAccess = require('../Middlewares/preventaccess');
+
 
 
 
@@ -21,6 +23,7 @@ let errorMessage;
 
 // Define your routes here
 // For example:
+// router.use(auth);
 router.use('/allblogs', allBlogs);
 router.use('/dashboard', dashrouter);
 router.use('/editblog', editRouter);
@@ -28,6 +31,7 @@ router.use('/login', loginRouter);
 router.use('/register', RegisterRouter); 
 router.use('/logout', logoutRouter); 
 router.use("/addblog", addBrouter);
+router.use("/myblogs",auth, myBlogs)
 // router.use("/blogrouter", );
 
 
@@ -50,14 +54,18 @@ const storage = multer.diskStorage({
 router.post('/blogs', upload.single("image"), auth , createBlog);
 
 // Get a blog by ID
-router.get('/blogs/:id', getBlog);
+// router.get('/blogs', auth, getmyBlog);
 
 // Update a blog by ID
-router.put('/blogs/:id', updateBlog);
+router.put('/editblog/:id',upload.single("image"), updateBlog);
 
 // Delete a blog by ID
-router.delete('/blogs/:id', deleteBlog);
+router.delete('/delete/:id', deleteBlog); 
 
+//get myblogs page
+// router.use('/myblogs', auth, myBlogs);
 
+//get blogs/author
+// router.get('/blogs/:id', updateBlog);
 
 module.exports = router;

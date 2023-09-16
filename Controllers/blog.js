@@ -1,11 +1,12 @@
 const express = require('express');
-const {Add_Blog, Delete_Blog, Update_Blog, Read_Blog} = require('../Api/blogapi');
+const {Add_Blog, Delete_Blog, Update_Blog, Read_Blog, Read_myBlog} = require('../Api/blogapi');
+const authenticate = require('../Middlewares/authenticate');
 
 //Create
 exports.createBlog = (req,res)=>{
     //getting blog info from user
     const {name} = req.user
-    console.log(req.file)
+    // console.log(req.file)
 
 
     const{title,desc,image}= req.body;
@@ -16,7 +17,7 @@ exports.createBlog = (req,res)=>{
         image: req.file.filename
     }
     Add_Blog(newBlog);
-    res.end();
+    res.redirect("/dashboard");
 }
 
 //Read Blog then display it
@@ -37,20 +38,51 @@ exports.getBlog = (req, res) => {
     }
 }
 //Update Blog
-exports.updateBlog = (req, res) => {
+exports.updateBlog =  (req, res) => {
     const { id } = req.params;
-    const { title, description, author } = req.body;
+    const { title, desc, author } = req.body;
+    
+    
+    const image = req.file.filename;
     const updatedBlog = {
-        title,
-        description,
-        author
+        title: title,
+        desc: desc,
+        author: author,
+        image: image
     };
-    Update_Blog(id, updatedBlog);
+     Update_Blog(id, updatedBlog)
+    // res.redirect('myblogs');
     res.end();
 }
 //Delete Blog
 exports.deleteBlog = (req, res) => {
     const { id } = req.params;
+    console.log(id);
     Delete_Blog(id);
+
     res.end();
 }
+
+// exports.getmyBlog = async (req, res) => {
+//     // Get the ID from the request parameters
+//     // When the Blog is selected, the id is sent to the req.params
+//     const { author } = req.user;
+//     // console.log(author);
+   
+//     const blog = await Read_myBlog(author);
+//     // console.log(blog);
+   
+//     if (blog) {
+      
+//       const data = {
+//         blogs: blog,
+//         head: head,
+//       };
+//     //   console.log(data);
+     
+//       res.render("myblogs", { data });
+      
+//     } else {
+//       res.status(404).json({ message: "no blogs found" }); // Send a 404 status if the blog was not found
+//     }
+//   };

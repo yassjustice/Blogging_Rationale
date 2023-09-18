@@ -22,8 +22,8 @@ function authenticate(req, res, next) {
   
       req.user = { email, name, password };
       // req.user = decoded;
-      console.log(decoded);
-      console.log(email,name,password);
+      // console.log("decoded",decoded);
+      // console.log(email,name,password);
       next(); // Proceed to the dashboard route
     });
     

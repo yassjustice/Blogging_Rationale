@@ -137,6 +137,18 @@
       "email": "yass@yass",
       "name": "yass",
       "id": 23
+    },
+    {
+      "password": "$2b$10$Mgq7X1/TJLbNYakls1dYYuJnKoaGyF0A0lpU5nFjkM4AsNECr80Fe",
+      "email": "la@g",
+      "name": "la",
+      "id": 24
+    },
+    {
+      "password": "$2b$10$jNpG.Dxv9WuHOEcifwB8h.xaflJljtdQltFnJuBH2zuRa9dZtDaLO",
+      "email": "aaa@gmail.com",
+      "name": "aaa",
+      "id": 25
     }
   ],
   "Blogs": [
@@ -263,6 +275,27 @@
       "author": "happy",
       "image": "1694890319930-cayetanadesigns_create_a_livign_room_with_Statement_Furniture_C_fbd92706-186c-4f92-9494-06e7967b4f84.png",
       "id": 23
+    },
+    {
+      "title": "dqzddzqdzqd",
+      "desc": "dzqdddddd",
+      "author": "la",
+      "image": "1695028170829-1_3BKnlYuwNKuHpERbqbSQ7Q.png",
+      "id": 24
+    },
+    {
+      "title": "dqzdqdzdqzdz",
+      "desc": "dzqdzqdzqdqzd",
+      "author": "la",
+      "image": "1695028178939-1_3BKnlYuwNKuHpERbqbSQ7Q.png",
+      "id": 25
+    },
+    {
+      "title": "qzdqdqdzqdqd",
+      "desc": "zddqdqzdzqd",
+      "author": "la",
+      "image": "1695028187100-1_3BKnlYuwNKuHpERbqbSQ7Q.png",
+      "id": 26
     }
   ]
 }

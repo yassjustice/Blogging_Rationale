@@ -57,7 +57,7 @@ router.post('/blogs', upload.single("image"), auth , createBlog);
 // router.get('/blogs', auth, getmyBlog);
 
 // Update a blog by ID
-router.put('/editblog/:id',upload.single("image"), updateBlog);
+router.post('/editblog/:id',auth,upload.single("image"), updateBlog);
 
 // Delete a blog by ID
 router.delete('/delete/:id', deleteBlog); 

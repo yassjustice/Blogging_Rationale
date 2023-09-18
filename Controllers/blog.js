@@ -1,6 +1,7 @@
 const express = require('express');
 const {Add_Blog, Delete_Blog, Update_Blog, Read_Blog, Read_myBlog} = require('../Api/blogapi');
 const authenticate = require('../Middlewares/authenticate');
+const { default: axios } = require('axios');
 
 //Create
 exports.createBlog = (req,res)=>{
@@ -38,21 +39,24 @@ exports.getBlog = (req, res) => {
     }
 }
 //Update Blog
-exports.updateBlog =  (req, res) => {
+exports.updateBlog =async  (req, res) => {
     const { id } = req.params;
     const { title, desc, author } = req.body;
+    const api = await axios.get('http://localhost:3000/blogs/'+id)
+    const blog = await api.data
     
-    
-    const image = req.file.filename;
+    // const image = req.file.filename;
     const updatedBlog = {
         title: title,
         desc: desc,
         author: author,
-        image: image
+        image: req.file?req.file.filename:blog.image
     };
-     Update_Blog(id, updatedBlog)
+     Update_Blog(id, updatedBlog).then(()=>{
+        res.redirect('/myblogs')
+     })
+    //  return res.redirect('/myblogs')
     // res.redirect('myblogs');
-    res.end();
 }
 //Delete Blog
 exports.deleteBlog = (req, res) => {

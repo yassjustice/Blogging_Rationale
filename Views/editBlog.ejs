@@ -12,7 +12,7 @@
     <div class="containerB">
 
     <div class="editSection">
-    <form class="form" enctype="multipart/form-data">
+    <form class="form" action="/editblog/<%= blog.id%>" method="post" enctype="multipart/form-data">
         <div class="title">Edit Your Blog</div>
         <input type="text" name="author" value="<%=blog.author %>" disabled>
         <input type="text" placeholder="Your Title" value="<%= blog.title %>" class="input" name="title">
@@ -31,7 +31,7 @@
             <input id="file" type="file" name="image" > 
           </div>
         <!--uplod image end-->
-        <button class="save" >Submit</button>
+        <button type="submit" class="save" >Submit</button>
     </form>
 </div>
 <div class="imSection">

@@ -13,6 +13,8 @@ allBrouter.get('/', async (req, res) => {
     }
     // console.log(data);
     res.render('allblogs', {data});
+    res.render('../navbar.ejs', { data });
+
 });
 
 

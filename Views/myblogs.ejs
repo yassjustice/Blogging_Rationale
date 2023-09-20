@@ -9,9 +9,10 @@
     <script defer src="js/clientmyblog.js"></script>
 </head>
 <body>
-    <h1 style="padding: 10px; margin: 10px;">My Blogs</h1>
+  <%- include('../partials/navbar.ejs', { data }) %>
+    <h1 style="padding: 10px; margin: 10px;"><%= data.head %></h1>
     <div class="contain">
-    <% userblogs.forEach(item=>{ %> 
+    <% data.blogs.forEach(item=>{ %> 
     <div class="card" style="background-image: url('../uploads/<%= item.image %>');
                             background-size: cover;
                             background-repeat: no-repeat;

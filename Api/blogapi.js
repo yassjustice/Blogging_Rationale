@@ -18,6 +18,7 @@ exports.Update_Blog = (id, updatedBlog) => api.patch(`/${id}`, updatedBlog);
 //READ BLOG BY ID
 exports.Read_Blog = id => api.get(`/${id}`);
 //read my blogs
+exports.Read_Blogs = () => api.get(`/`);
 
 // exports.Read_myBlog = async (author) => {
 //     try {

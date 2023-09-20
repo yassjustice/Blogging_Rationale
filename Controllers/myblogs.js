@@ -14,7 +14,7 @@ myBlogs.get("/", async (req, res) => {
   // console.log(author);
   // console.log("name is" + response.data);
   const blogs= response.data;
-  const userblogs = blogs.filter(blog => blog.author == user.name);
+  const userblogs = blogs.filter(blog => blog.author == user.name); 
   
     if (userblogs) {
         const data = {
@@ -22,7 +22,9 @@ myBlogs.get("/", async (req, res) => {
           head: head
         };
         // console.log(data);
-        res.render("myblogs",{userblogs});
+        res.render("myblogs",{data});
+    res.render('../navbar.ejs', { data });
+
         // res.render("myblogs", { data });
       } else {
         res.status(404).json({ message: "no blogs found" }); // Send a 404 status if the blog was not found

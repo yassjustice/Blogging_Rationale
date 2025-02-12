@@ -25,12 +25,12 @@ let errorMessage;
 // For example:
 // router.use(auth);
 router.use('/allblogs', allBlogs);
-router.use('/dashboard', dashrouter);
-router.use('/editblog', editRouter);
+router.use('/dashboard',auth, dashrouter);
+router.use('/editblog',auth, editRouter);
 router.use('/login', loginRouter);
 router.use('/register', RegisterRouter); 
 router.use('/logout', logoutRouter); 
-router.use("/addblog", addBrouter);
+router.use("/addblog",auth, addBrouter);
 router.use("/myblogs",auth, myBlogs)
 // router.use("/blogrouter", );
 
@@ -71,7 +71,7 @@ router.post('/blogs', upload.single("image"), auth , createBlog);
 router.post('/editblog/:id',auth,upload.single("image"), updateBlog);
 
 // Delete a blog by ID
-router.delete('/delete/:id', deleteBlog); 
+router.delete('/delete/:id',auth, deleteBlog); 
 
 //get myblogs page
 // router.use('/myblogs', auth, myBlogs);

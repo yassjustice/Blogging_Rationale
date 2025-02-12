@@ -47,7 +47,263 @@ const bodyparser = require('body-parser');
 const { body, validationResult } = require('express-validator');
 const xss = require('xss');
 const axios = require('axios');
-const users = require('./Models/db.json');
+// const users = require('./Models/db.json');
+const users =  {
+  "users": [
+    {
+      "password": "$2b$10$PQJQBvLIDXXzGsfEuf.uY.UHhR0oDE0cTUkRyzSJX8W2EgH4jNCmG",
+      "email": "ddeedeq@gmail.com",
+      "name": "yassir",
+      "id": 1
+    },
+    {
+      "password": "$2b$10$1LoyUxNxSNrf9lvUqlLG3eV4MB33K4o/w0nkJLaoakZNTdKYFOpCC",
+      "email": "",
+      "name": "dqzd",
+      "id": 2
+    },
+    {
+      "password": "$2b$10$q5WLm4AfnF4jmHaFGzPcs.caXjk2xXh.kKxRTpdpl578UR1M8qBVe",
+      "email": "",
+      "name": "dqdd",
+      "id": 3
+    },
+    {
+      "password": "$2b$10$IqnFdsWwBN5tn0BOkH39EuJMISbU1mYU7i9t/vVvEOFeNg9KGOLXq",
+      "email": "",
+      "name": "",
+      "id": 4
+    },
+    {
+      "password": "$2b$10$AMSp1PTSUt1V63Ua7DDL4OFpX0eU8763DfscZw6uvSe2ej6V84Afq",
+      "email": "",
+      "name": "dzqd",
+      "id": 5
+    },
+    {
+      "password": "$2b$10$LW3Vgq0mxJppBmBBV5PuOef3p938k4XX0Qgx1izZHQFFvndqgDOFu",
+      "email": "yassir@gmail.com",
+      "name": "yassir",
+      "id": 6
+    },
+    {
+      "password": "$2b$10$QFSkkYDt2/BgqXgOHpFISOaj3oYPfTn.vGduFb22kNawYZWDPjWdm",
+      "email": "abcd@gmail.com",
+      "name": "yassir hakimi",
+      "id": 7
+    },
+    {
+      "password": "$2b$10$C2yt66kiBGDFLRlMWOmnquwE/pdPvSAmBvI8J/OJKNZHI2HM2ZH62",
+      "email": "happy@gmail.com",
+      "name": "happy",
+      "id": 8
+    },
+    {
+      "password": "$2b$10$QBWaWcljfc7kWHPX5Cm.1eW/2IGzR6xkpRaDElOcag1YlixIcjiAi",
+      "email": "yas@gmail.co",
+      "name": "zdqdzd",
+      "id": 9
+    },
+    {
+      "password": "$2b$10$PiIDXkQXT5sx6sxeXDhLfui5d3HjXHwxu0DPzpxRS9mMDMZW1v3Mu",
+      "email": "",
+      "name": "d",
+      "id": 10
+    },
+    {
+      "password": "$2b$10$w2B8IzNXk.HU4KBv/HA9aOMudk5CkHCGBoYt6L0QREI7.kWvRglo6",
+      "email": "d@d",
+      "name": "",
+      "id": 11
+    },
+    {
+      "password": "$2b$10$e2Xu0FNoI4FJCVn8YVaDGeUzdMh0z1TOtYaQagwqzr6k/Ub.5jCyy",
+      "email": "yass@g.com",
+      "name": "yass@g.com",
+      "id": 12
+    },
+    {
+      "password": "$2b$10$WN.8prg1XcoMNvrZ35KheeQFsD/OZmsWMlbBa5ejY/X9tXtT1yARO",
+      "email": "h@g.com",
+      "name": "happy",
+      "id": 13
+    },
+    {
+      "password": "$2b$10$00CnqCqCi/U1/OUbpNoIcuqhtAZERd5BfdaBPJZY6Uw8xG3vRGAuG",
+      "email": "yassir@g.com",
+      "name": "yassir",
+      "id": 14
+    },
+    {
+      "password": "$2b$10$iZxNgreEPHBAvKWbWkSGceEY/EYlysK90zS7WGLPYYCbjU0EbH3ny",
+      "email": "happy@gmail.com",
+      "name": "happy",
+      "id": 15
+    },
+    {
+      "password": "$2b$10$fe1KChxLV/FL2PtzI4ocJeS/6PIa5EWWfyl.riBOzPteUU1uKMzoK",
+      "email": "yousra@g.com",
+      "name": "yousra",
+      "id": 16
+    },
+    {
+      "password": "$2b$10$N.cTpk9YndsSCz77njZe7ON.oWcaTMsyyMWE3M9AobNAk0hhDkjFy",
+      "email": "yousra@g.com",
+      "name": "yousra",
+      "id": 17
+    },
+    {
+      "password": "$2b$10$TEQbohSmRgbsVt0qEAdznuGXfvinahqq45e1rlDmbOHmHcF8rKSF.",
+      "email": "lol@gmail.com",
+      "name": "lol",
+      "id": 18
+    },
+    {
+      "password": "$2b$10$Jg2Fhao/JBbz1oZsWv9yQ.iewkj52U/OV1Rcq9C7J9JI/0VA4AVui",
+      "email": "bad@gmail.com",
+      "name": "bad",
+      "id": 19
+    },
+    {
+      "password": "$2b$10$aeDMAwNm6/0PsV3n4P2Wau0PyukURYJSkWtMimFmSxDWNSFsb5W.m",
+      "email": "",
+      "name": "",
+      "id": 20
+    },
+    {
+      "password": "$2b$10$abfuDG1PO4Eqo86OvwJw0uslrhMf2u9zEOUgJNOhOQ0pKcarAgn2m",
+      "email": "yousra@g.com",
+      "name": "yousra",
+      "id": 21
+    },
+    {
+      "password": "$2b$10$/TzIYPZ6vdNni0YzSIIMLu1gWjSbYt7T9uJaivG0M9gDJrS4Ob6Tu",
+      "email": "yousra@g.com",
+      "name": "yousra1",
+      "id": 22
+    },
+    {
+      "password": "$2b$10$/nPXXQj03uQFnPd2sBWSQeZkvS/JmRU8J8nsL1IJRS9260FIWOWwK",
+      "email": "yass@yass",
+      "name": "yass",
+      "id": 23
+    },
+    {
+      "password": "$2b$10$Mgq7X1/TJLbNYakls1dYYuJnKoaGyF0A0lpU5nFjkM4AsNECr80Fe",
+      "email": "la@g",
+      "name": "la",
+      "id": 24
+    },
+    {
+      "password": "$2b$10$jNpG.Dxv9WuHOEcifwB8h.xaflJljtdQltFnJuBH2zuRa9dZtDaLO",
+      "email": "aaa@gmail.com",
+      "name": "aaa",
+      "id": 25
+    },
+    {
+      "password": "$2b$10$4fhyn6TW2VDb9eviClF7H.SoifCKeSvINyzz3zyTbWb2nCfHMr/uO",
+      "email": "happy@gmail.com",
+      "name": "happy",
+      "id": 26
+    },
+    {
+      "password": "$2b$10$PWpyrXw8UeE7ge9op3LGeuO7kHNTbPfgvkeihGxT5zADc92kqdCTG",
+      "email": "nawfal@g.com",
+      "name": "nawfal",
+      "id": 27
+    },
+    {
+      "password": "$2b$10$1HK.lxJeLtaUsRRixREg6O70qUqTefInW82W56uhHzYC79RXm5kzW",
+      "email": "naoufal@g.com",
+      "name": "naoufal",
+      "id": 28
+    },
+    {
+      "password": "$2b$10$hatUk2HSp5qZ/kVpeSJ4.OtPxYs/i/yg4JqffKu.n/XO5Spl4S2Vu",
+      "email": "h@h.com",
+      "name": "h",
+      "id": 29
+    },
+    {
+      "password": "$2b$10$SE11qEOaonnDPVooYK.D/eqDbTirJRo59pfd7nJCu6IeQfwQXFyzG",
+      "email": "helloworld@g.com",
+      "name": "helloworld",
+      "id": 30
+    }
+  ],
+  "Blogs": [
+    {
+      "title": "Demystifying Artificial Intelligence: A Beginner's Guide",
+      "desc": "Explore the fundamental concepts of AI, from machine learning to neural networks, in an accessible manner.",
+      "author": "h",
+      "image": "1695207482926-cayetanadesigns_create_a_livign_room_with_Statement_Furniture_C_01be2a11-7118-4ba8-b383-43b1b41c5610.png",
+      "id": 2
+    },
+    {
+      "title": "AI in Healthcare: Revolutionizing Patient Care and Diagnoses",
+      "desc": "Delve into the transformative impact of AI on the healthcare industry, from early disease detection to personalized treatment plans.",
+      "author": "h",
+      "image": "1695207495562-bbb_magic_carpet_floating_above_a_smoking_landscape._Sitting_on_e0da339b-a701-46d8-8f80-549253080287.png",
+      "id": 3
+    },
+    {
+      "title": "Ethical Considerations in AI Development: Balancing Innovation and Responsibility",
+      "desc": "Examine the crucial ethical challenges surrounding AI, including bias, privacy, and accountability.",
+      "author": "h",
+      "image": "1695207504823-cayetanadesigns_create_a_livign_room_with_Statement_Furniture_C_8da86d32-2ebb-40b7-9de8-94fd44591eb6.png",
+      "id": 4
+    },
+    {
+      "title": "Natural Language Processing: The Power of Teaching Computers to Understand Human Language",
+      "desc": "Dive into the world of NLP and its applications in chatbots, language translation, sentiment analysis, and more.",
+      "author": "h",
+      "image": "1695207565589-DanielH.M._Hero_section_image_for_a_website_landing_page._AI-dr_20ffe734-8626-43d6-9c3d-8eff74d796e1.png",
+      "id": 7
+    },
+    {
+      "title": "AI in Business: Driving Efficiency, Innovation, and Growth",
+      "desc": "Learn how organizations across industries are leveraging AI to optimize operations, make data-driven decisions, and gain a competitive edge.",
+      "author": "h",
+      "image": "1695207584422-Doctor_Dude_420_Design_an_illustration_of_Annalena_Baerbocks_li_4db57227-8271-4d24-86ee-e6560523acdf.png",
+      "id": 8
+    },
+    {
+      "title": "AI in Finance: From Algorithmic Trading to Personalized Financial Advice",
+      "desc": "Uncover the ways AI is revolutionizing the financial sector, from high-frequency trading to robo-advisors.",
+      "author": "h",
+      "image": "1695207598699-jackrbrain_isolatedfront-view_toile-style_botanical_decor_fanta_befdaf41-5f1d-4124-a14d-49a3383dd77c.png",
+      "id": 9
+    },
+    {
+      "title": "AI in Retail: Transforming Customer Experiences and Operations",
+      "desc": "Explore how AI is revolutionizing the retail industry, from personalized shopping recommendations to inventory optimization.",
+      "author": "naoufal",
+      "image": "1695207851243-jdardesign_a_very_luxury_chess_on_table_all_the_chessmen_are_pa_09cf5e21-77cd-48ff-bc20-e927be8cbb41.png",
+      "id": 14
+    },
+    {
+      "title": "AI in Transportation: Paving the Way for Safer and Smarter Mobility",
+      "desc": "Delve into the applications of AI in transportation, including autonomous vehicles, traffic management, and logistics optimization.",
+      "author": "naoufal",
+      "image": "1695207877163-jdardesign_a_very_luxury_chess_on_table_all_the_chessmen_are_pa_89c2b074-9f03-4c9d-9f20-413d6015b985.png",
+      "id": 15
+    },
+    {
+      "title": "AI in Natural Language Generation: From Data to Coherent Text",
+      "desc": "Dive deep into NLG, a subset of AI, and its role in generating human-like text for various applications like content creation and report writing.",
+      "author": "naoufal",
+      "image": "1695207917644-jdardesign_a_very_luxury_chess_on_table_all_the_chessmen_are_pa_471d8191-b385-4b50-90b1-b9c4fc84ef29.png",
+      "id": 16
+    },
+    {
+      "title": "First Edit",
+      "desc": "This is an editted blog",
+      "author": "helloworld",
+      "image": "1695216351370-bbb_magic_carpet_floating_above_a_smoking_landscape._Sitting_on_e0da339b-a701-46d8-8f80-549253080287.png",
+      "id": 17
+    }
+  ]
+};
 const secret = 'YassirHakimi';
 const cookies = require('cookie-parser');
 const multer = require('multer');

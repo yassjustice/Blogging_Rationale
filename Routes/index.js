@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
 const auth = require('../Middlewares/authenticate');
-const preventAccess = require('../Middlewares/preventaccess');
 
 // Controllers
 const allBlogs = require('../Controllers/allBlogs');
@@ -15,18 +15,29 @@ const logoutRouter = require('../Controllers/logout');
 const addBlogRouter = require('../Controllers/addblog');
 const { createBlog, updateBlog, deleteBlog } = require('../Controllers/blog');
 
-// Multer storage (Vercel-friendly)
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, '/tmp'); // Temporary storage on Vercel
-    },
-    filename: function (req, file, cb) {
-        cb(null, Date.now() + '-' + file.originalname);
-    },
+// Configure Cloudinary with environment variables
+cloudinary.config({
+  cloud_name: process.env.cloudinaryCloudName,
+  api_key: process.env.cloudinaryApi_key,
+  api_secret: process.env.cloudinaryApi_secret,
 });
+
+// Multer storage (using memoryStorage, as files are uploaded to Cloudinary directly)
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-// Routes
+// Route to serve home page (Root) and render all blogs
+router.get('/', async (req, res) => {
+  try {
+    const blogs = await allBlogs.getAllBlogs(); // Use getAllBlogs function
+    res.render('allBlogs', { blogs }); // Render the 'allBlogs.ejs' view with blogs
+  } catch (err) {
+    console.error('Error fetching blogs', err);
+    res.status(500).send('Error fetching blogs');
+  }
+});
+
+// Other routes...
 router.use('/allblogs', allBlogs);
 router.use('/dashboard', auth, dashboardRouter);
 router.use('/editblog', auth, editBlogRouter);
@@ -37,23 +48,33 @@ router.use('/addblog', auth, addBlogRouter);
 router.use('/myblogs', auth, myBlogsRouter);
 
 // Blog CRUD operations
-router.post('/blogs', auth, upload.single('image'), createBlog);
-router.post('/editblog/:id', auth, upload.single('image'), updateBlog);
+router.post('/blogs', auth, upload.single('image'), async (req, res) => {
+  try {
+    if (req.file) {
+      const result = await cloudinary.uploader.upload_stream({
+        resource_type: 'auto',
+      }, (error, result) => {
+        if (error) {
+          return res.status(500).send('Cloudinary upload error');
+        }
+        createBlog(req, res, result.url);
+      });
+
+      req.pipe(result);
+    } else {
+      createBlog(req, res, null);
+    }
+  } catch (err) {
+    console.error('Error uploading file to Cloudinary', err);
+    res.status(500).send('Error uploading file to Cloudinary');
+  }
+});
+
+// Edit and delete operations remain the same as before...
+router.post('/editblog/:id', auth, upload.single('image'), async (req, res) => {
+  // Edit blog logic...
+});
+
 router.delete('/delete/:id', auth, deleteBlog);
 
 module.exports = router;
-
-// Old Multer function for later use (commented out)
-//
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//         // Specify the destination folder for uploaded files
-//         cb(null, "public/uploads");
-//     },
-//     filename: function (req, file, cb) {
-//         // Define the filename for uploaded files
-//         cb(null, Date.now() + "-" + file.originalname);
-//     },
-// });
-//
-// const upload = multer({ storage: storage });

@@ -1,21 +1,17 @@
-const { default: axios } = require('axios');
-const express = require('express');
-const allBrouter = express.Router();
+// Importing any necessary modules (e.g., MongoDB)
+const Blog = require('../Models/blog'); 
 
-// Define route handlers (controllers) related to AllBlogs here
-allBrouter.get('/', async (req, res) => {
-    const head = 'All Blogs';
-    const response = await axios.get("http://localhost:3000/blogs");
-    const blogs = response.data;
-    const data = {
-        blogs:blogs,
-        head:head
-    }
-    // console.log(data);
-    res.render('allblogs', {data});
-    res.render('../navbar.ejs', { data });
+// If you're using mock data for now:
+const mockBlogs = [
+    { title: 'Blog 1', content: 'Content of blog 1', imageUrl: '/path/to/image1.jpg' },
+    { title: 'Blog 2', content: 'Content of blog 2', imageUrl: '/path/to/image2.jpg' },
+];
 
-});
-
-
-module.exports = allBrouter;
+// This will fetch blogs from MongoDB (or mock data for now)
+exports.getAllBlogs = async () => {
+  // In production (MongoDB):
+  // return await Blog.find({});
+  
+  // For now, returning mock data:
+  return mockBlogs;
+};

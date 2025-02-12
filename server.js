@@ -3,10 +3,11 @@ const app = express();
 const bodyparser = require('body-parser');
 const cookies = require('cookie-parser');
 const cors = require('cors');
+const serverless = require('serverless-http');
 
 // CORS Configuration
 var corsOptions = {
-  origin: ['http://localhost:3000'], // Adjust as needed for Vercel deployments
+  origin: ['http://localhost:3000'], // Adjust for your Vercel deployment
 };
 
 // Middleware
@@ -23,5 +24,5 @@ app.use(cors(corsOptions));
 const routes = require('./Routes');
 app.use('/', routes);
 
-// Export the Express app for Vercel
-module.exports = app;
+// Export for Vercel (wrap in serverless handler)
+module.exports.handler = serverless(app);

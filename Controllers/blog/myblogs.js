@@ -1,6 +1,6 @@
 const express = require("express");
-const authenticate = require("../Middlewares/authenticate");
-const { Read_myBlog } = require("../Api/blogapi");
+const authenticate = require("../../Middlewares/authenticate");
+const { Read_myBlog } = require("../../Api/blogapi");
 const { default: axios } = require("axios");
 const myBlogs = express.Router();
 

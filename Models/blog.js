@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
-const BlogSchema = new mongoose.Schema({
-  title: String,
-  content: String,
-  imageUrl: String, // URL of the image (from Cloudinary)
+// Define the Blog schema
+const blogSchema = new mongoose.Schema({
+    title: { type: String, required: true },
+    content: { type: String, required: true },
+    imageUrl: { type: String },
+    createdAt: { type: Date, default: Date.now },
 });
 
-const Blog = mongoose.model('Blog', BlogSchema);
+// Create the Blog model using the schema
+const Blog = mongoose.model('Blog', blogSchema);
 
 module.exports = Blog;

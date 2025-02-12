@@ -1,6 +1,6 @@
 const { default: axios } = require('axios');
 const express = require('express');
-const authenticate = require('../Middlewares/authenticate');
+const authenticate = require('../../Middlewares/authenticate');
 const editRouter = express.Router();
 
 // Define route handlers (controllers) related to AllBlogs here

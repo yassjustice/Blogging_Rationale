@@ -1,31 +1,20 @@
-// const express = require("express");
-// const app = express()
-const { name } = require('ejs');
-const jwt = require('jsonwebtoken')
-const secret = 'YassirHakimi'
+const jwt = require('jsonwebtoken');
+const secret = process.env.JWT_SECRET;  // Use secret from .env file
 
+const authenticate = (req, res, next) => {
+  const token = req.cookies.jwtToken;
 
-
-function authenticate(req, res, next) {
-    const token = req.cookies.jwtToken; // Assuming you named the cookie 'jwtToken'
-    // console.log(token);
-    if (!token) {
-      return res.redirect('/login'); // Redirect to login if token is not present
-    }
-  
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) {
-        return res.redirect('/login'); // Redirect to login if JWT is invalid
-      }
-  
-      const { email, name, password } = decoded;
-  
-      req.user = { email, name, password };
-      // req.user = decoded;
-      // console.log("decoded",decoded);
-      // console.log(email,name,password);
-      next(); // Proceed to the dashboard route
-    });
-    
+  if (!token) {
+    return res.status(403).json({ message: 'Access denied, no token provided' });
   }
-  module.exports = authenticate;
+
+  try {
+    const decoded = jwt.verify(token, secret);
+    req.user = decoded;  // Attach user information to the request object
+    next();
+  } catch (err) {
+    return res.status(400).json({ message: 'Invalid or expired token' });
+  }
+};
+
+module.exports = authenticate;

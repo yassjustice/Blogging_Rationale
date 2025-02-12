@@ -53,7 +53,7 @@ const cookies = require('cookie-parser');
 const multer = require('multer');
 const cors = require('cors');
 
-const PORT = process.env.PORT || 7500;
+// const PORT = process.env.PORT || 7500;
 
 // CORS Configuration
 var corsOptions = {

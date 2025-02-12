@@ -1,0 +1,13 @@
+service: my-service
+
+provider:
+  name: vercel
+  runtime: nodejs14.x
+
+functions:
+  app:
+    handler: handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any

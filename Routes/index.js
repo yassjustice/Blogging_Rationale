@@ -36,18 +36,29 @@ router.use("/myblogs",auth, myBlogs)
 
 
 //multer
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       // Specify the destination folder for uploaded files
+//       cb(null, "public/uploads");
+//     },
+//     filename: function (req, file, cb) {
+//       // Define the filename for uploaded files
+//       cb(null, Date.now() + "-" + file.originalname);
+//     },
+//   });
+  
+//   const upload = multer({ storage: storage });
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      // Specify the destination folder for uploaded files
-      cb(null, "public/uploads");
+        cb(null, "/tmp"); // Temporary storage on Vercel
     },
     filename: function (req, file, cb) {
-      // Define the filename for uploaded files
-      cb(null, Date.now() + "-" + file.originalname);
+        cb(null, Date.now() + "-" + file.originalname);
     },
-  });
-  
-  const upload = multer({ storage: storage });
+});
+const upload = multer({ storage: storage });
+
 
 
 // Create a new blog

@@ -200,4 +200,5 @@ router.use('/dashboard',
   // auth, 
   dashboardRouter);
 
-module.exports = router;
+// module.exports = router;
+export default router;

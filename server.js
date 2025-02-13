@@ -10,6 +10,7 @@ const jwt = require("jsonwebtoken");
 const flash = require("connect-flash");
 
 const session = require("express-session"); // Add this line
+const isProduction = process.env.NODE_ENV === "production";
 
 // Middleware
 app.use(
@@ -51,7 +52,7 @@ const routes = require("./Routes");
 app.use("/", routes);
 
 // Conditional check to see if it's running on Vercel or locally
-if (!process.env.VERCEL) {
+if (!isProduction) {
     // Only listen on a port when running locally
     const PORT = process.env.PORT || 7500;
     app.listen(PORT, () => {

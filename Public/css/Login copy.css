@@ -1,0 +1,132 @@
+/* login.css */
+
+/* Global Styles for Login Page */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #1C1C1E; /* Dark background */
+  color: #F5F5F7; /* Light text */
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Center the Login Form */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+.shadow-lg {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Section */
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 32px;
+  color: #4A90E2; /* Primary Blue */
+  font-weight: 600;
+}
+
+p {
+  color: #F5F5F7; /* Light Text */
+  font-size: 14px;
+}
+
+/* Input Fields Styling */
+input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  background-color: #F9F9F9;
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+input[type="email"]:focus, input[type="password"]:focus {
+  border-color: #4A90E2; /* Primary Blue */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.4);
+}
+
+input::placeholder {
+  color: #B5B5B5; /* Light placeholder text */
+}
+
+/* Button Styling */
+button {
+  padding: 1rem;
+  background-color: #4A90E2; /* Primary Blue */
+  color: white;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #357ABD; /* Slightly darker blue */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.4);
+}
+
+/* Error Message Styling */
+.text-red-500 {
+  color: #D0021B; /* Error Red */
+  font-size: 14px;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+/* Footer Section */
+footer {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+footer p {
+  color: #B5B5B5;
+  font-size: 14px;
+}
+
+/* Signup Link Styling */
+a {
+  color: #4A90E2; /* Primary Blue */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<% const { totalUserBlogs, email, name, head, content } = data; %>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title><%= head %> | BlogGenius Dashboard</title>
+        <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+        <!-- General CSS -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+    <body class="bg-gray-100 font-roboto">
+        <div class="flex">
+            <!-- Sidebar -->
+            <aside class="w-64 bg-blue-900 text-white p-5 h-screen">
+                <div class="text-center mb-5">
+                    <h2 class="text-xl font-semibold">BlogGenius</h2>
+                    <p class="text-sm">Admin Dashboard</p>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="/" class="sidebar-link">Dashboard</a></li>
+                        <li>
+                            <a href="/dashboard/crud" class="sidebar-link"
+                                >Manage Blogs</a
+                            >
+                        </li>
+                        <li>
+                            <a href="/dashboard/stats" class="sidebar-link"
+                                >Stats</a
+                            >
+                        </li>
+                        <li>
+                            <a href="/logout" class="sidebar-link">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="flex-1 p-10">
+                <header class="flex justify-between items-center mb-8">
+                    <h1 class="text-3xl font-semibold"><%= head %></h1>
+                </header>
+
+                <div>
+                    <!-- Dynamic Content -->
+                    <%- include('../'+ content) %>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

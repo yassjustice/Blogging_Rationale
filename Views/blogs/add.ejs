@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Blog</title>
+    <link rel="stylesheet" href="/css/add.css"> 
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-3xl">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Add New Blog</h2>
+
+        <form action="/addblog" method="post" enctype="multipart/form-data" class="space-y-4">
+            
+            <!-- Blog Title -->
+            <div>
+                <label class="block text-gray-700 font-medium" for="title">Blog Title</label>
+                <input type="text" name="title" id="title" required maxlength="32"
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                    placeholder="Enter blog title">
+                <p class="text-xs text-gray-500 mt-1">Max 32 characters</p>
+            </div>
+
+            <!-- Description -->
+            <div>
+                <label class="block text-gray-700 font-medium" for="desc">Description</label>
+                <textarea name="desc" id="desc" required
+                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 outline-none resize-none h-32"
+                    placeholder="Write a meaningful blog description"></textarea>
+                <p class="text-xs text-gray-500 mt-1">Give a brief and meaningful description of the blog.</p>
+            </div>
+
+            <!-- File Upload -->
+            <div class="relative border-dashed border-2 border-gray-300 rounded-lg p-6 text-center">
+                <input id="file" type="file" name="image" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                
+                <svg class="w-10 h-10 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10V9a5 5 0 0110 0v1m4 0a4 4 0 01-4 4H7a4 4 0 01-4-4m8 4v6m0 0l3-3m-3 3l-3-3"></path>
+                </svg>
+                <p class="text-gray-600 mt-2">Click or drag an image to upload</p>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex justify-end">
+                <button type="submit"
+                    class="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition">
+                    Publish Blog
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

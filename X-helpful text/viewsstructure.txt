@@ -1,0 +1,12 @@
+/views
+│── /partials       # Shared UI components
+│── /blogs         # Blog-related views
+│   │── allblogs.ejs
+│   │── single.ejs
+│   │── edit.ejs
+│   │── add.ejs
+│── /auth          # Authentication views
+│   │── login.ejs
+│   │── register.ejs
+│── dashboard.ejs  # User dashboard
+│── index.ejs      # Home page

@@ -1,0 +1,31 @@
+<!-- views/layouts/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= head %> | BlogGenius</title>
+  <link rel="stylesheet" href="/path/to/your/styles.css"> <!-- global styles -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="<%= css %>">
+</head>
+<body class="bg-gray-100 font-roboto">
+
+  <!-- Navbar -->
+  <%- include('../partials/navbar') %>
+
+  <!-- Main Content (Dynamic Content Injection) -->
+  <div class="container mx-auto mt-8">
+    <%- include('../' + content) %> <!-- Dynamic content -->
+  </div>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
+
+  <!-- Optionally, add page-specific scripts -->
+  <script src="/path/to/your/script.js"></script>
+</body>
+</html>

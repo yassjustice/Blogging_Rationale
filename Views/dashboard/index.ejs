@@ -1,0 +1,35 @@
+<% const { totalUserBlogs, email, name } = data; %>
+<% console.log("email : ", data) %>
+
+<div class="bg-white rounded-lg shadow-lg p-8">
+    <!-- Here I deleted h2 with data -->
+<h2 class="text-2xl font-semibold mb-4">Welcome, <%= name %>!</h2>
+
+
+    <div class="grid grid-cols-2 gap-8">
+        <!-- Stats Section -->
+        <div class="bg-blue-500 text-white p-6 rounded-lg shadow-lg">
+            <h3 class="font-semibold text-xl mb-2">Main Stats</h3>
+            <!-- here I deleted data -->
+            <p class="text-lg">Total Blogs: <%= totalUserBlogs %></p>
+            <p class="text-lg">Email: <%= email %></p>
+        </div>
+
+        <!-- Action Buttons for CRUD -->
+        <div>
+            <h3 class="font-semibold text-xl mb-2">Manage Blogs</h3>
+            <div class="space-y-4">
+                <a href="/dashboard/crud/create" class="btn-primary"
+                    >Create New Blog</a
+                >
+                <a href="/dashboard/crud" class="btn-secondary"
+                    >View All Blogs</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

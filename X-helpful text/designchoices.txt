@@ -1,0 +1,23 @@
+🎨 Design Choices for the Blogging Platform
+These decisions will ensure visual and functional consistency across all pages:
+
+Color Scheme:
+
+Primary Color: #4A90E2 (Blue) → Used for action buttons and highlights.
+Secondary Color: #1C1C1E (Dark Grey) → Background for a sleek modern look.
+Accent Color: #F5A623 (Orange) → Used sparingly for interactive elements.
+Text Color: #F5F5F7 (Light Grey) → Ensures good readability.
+Error/Warning Color: #D0021B (Red) → Used for alerts and error messages.
+Fonts & Typography:
+
+Primary Font: "Inter", sans-serif → Clean and modern.
+Secondary Font: "Roboto", sans-serif → Alternative for headings and buttons.
+Font Sizes:
+Headings: 24px - 32px (depending on section)
+Body Text: 16px
+Buttons & Labels: 14px - 18px
+UI Elements & Aesthetics:
+
+Soft Shadows & Rounded Corners: Enhances a modern and professional feel.
+Minimalist Input Fields: Simple, outlined inputs with a subtle hover effect.
+Consistent Buttons: Clear primary, secondary, and danger button styles.

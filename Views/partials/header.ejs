@@ -1,0 +1,70 @@
+<!-- header.ejs -->
+
+<header class="bg-dark shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo Section -->
+      <div class="flex items-center space-x-3">
+        <a href="/" class="text-3xl font-bold text-primary hover:text-blue-600 transition-all ease-in-out">
+          <span class="text-accent">B</span>log<span class="text-accent">G</span>enius
+        </a>
+      </div>
+  
+      <!-- Navbar Links -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="/" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">Home</a>
+        <a href="/blogs" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">Blogs</a>
+        <a href="/about" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">About</a>
+        <a href="/contact" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">Contact</a>
+      </nav>
+  
+      <!-- Authentication Links -->
+      <div class="flex items-center space-x-4">
+        <% if (user) { %>
+          <a href="/dashboard" class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out">Dashboard</a>
+          <form action="/logout" method="POST">
+            <button type="submit" class="text-lg text-danger hover:text-red-600 transition-all ease-in-out">Logout</button>
+          </form>
+        <% } else { %>
+          <a href="/login" class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out">Login</a>
+          <a href="/register" class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out">Register</a>
+        <% } %>
+      </div>
+  
+      <!-- Mobile Hamburger Icon (for small screens) -->
+      <div class="md:hidden flex items-center">
+        <button id="hamburgerMenu" class="text-2xl text-textColor hover:text-primary focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobileMenu" class="md:hidden bg-dark text-white hidden">
+      <div class="flex flex-col items-center py-4 space-y-4">
+        <a href="/" class="text-lg text-textColor hover:text-primary">Home</a>
+        <a href="/blogs" class="text-lg text-textColor hover:text-primary">Blogs</a>
+        <a href="/about" class="text-lg text-textColor hover:text-primary">About</a>
+        <a href="/contact" class="text-lg text-textColor hover:text-primary">Contact</a>
+        <% if (user) { %>
+          <a href="/dashboard" class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out">Dashboard</a>
+          <form action="/logout" method="POST">
+            <button type="submit" class="text-lg text-danger hover:text-red-600">Logout</button>
+          </form>
+        <% } else { %>
+          <a href="/login" class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out">Login</a>
+          <a href="/register" class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out">Register</a>
+        <% } %>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Scripts for Mobile Menu -->
+  <script>
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+  
+    hamburgerMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+  

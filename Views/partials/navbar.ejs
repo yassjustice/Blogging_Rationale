@@ -1,0 +1,135 @@
+<!-- navbar.ejs -->
+
+<nav class="bg-dark text-textColor shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <!-- Logo Section (Left) -->
+        <div class="flex items-center space-x-3">
+            <a
+                href="/"
+                class="text-3xl font-bold text-primary hover:text-blue-600 transition-all ease-in-out"
+            >
+                <span class="text-accent">B</span>log<span class="text-accent"
+                    >G</span
+                >enius
+            </a>
+        </div>
+
+        <!-- Navigation Links (Desktop Version) -->
+        <div class="hidden md:flex space-x-8">
+            <a
+                href="/"
+                class="text-lg text-textColor hover:text-primary transition-all ease-in-out"
+                >Home</a
+            >
+            <a
+                href="/allblogs"
+                class="text-lg text-textColor hover:text-primary transition-all ease-in-out"
+                >Blogs</a
+            >
+            <a
+                href="/about"
+                class="text-lg text-textColor hover:text-primary transition-all ease-in-out"
+                >About</a
+            >
+            <a
+                href="/contact"
+                class="text-lg text-textColor hover:text-primary transition-all ease-in-out"
+                >Contact</a
+            >
+        </div>
+
+        <!-- Authentication Links -->
+        <div class="flex items-center space-x-4">
+            <% if (user) { %>
+            <a
+                href="/dashboard"
+                class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out"
+                >Dashboard</a
+            >
+
+            <a
+                class="text-lg text-danger hover:text-red-600 transition-all ease-in-out"
+                href="/logout"
+            >
+                Logout
+            </a>
+
+            <% } else { %>
+            <a
+                href="/login"
+                class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out"
+                >Login</a
+            >
+            <a
+                href="/register"
+                class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out"
+                >Register</a
+            >
+            <% } %>
+        </div>
+
+        <!-- Mobile Hamburger Icon -->
+        <div class="md:hidden flex items-center">
+            <button
+                id="mobileHamburgerMenu"
+                class="text-2xl text-textColor hover:text-primary focus:outline-none"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileDropdownMenu" class="md:hidden bg-dark text-white hidden">
+        <div class="flex flex-col items-center py-4 space-y-4">
+            <a href="/" class="text-lg text-textColor hover:text-primary"
+                >Home</a
+            >
+            <a href="/blogs" class="text-lg text-textColor hover:text-primary"
+                >Blogs</a
+            >
+            <a href="/about" class="text-lg text-textColor hover:text-primary"
+                >About</a
+            >
+            <a href="/contact" class="text-lg text-textColor hover:text-primary"
+                >Contact</a
+            >
+            <% if (user) { %>
+            <a
+                href="/dashboard"
+                class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out"
+                >Dashboard</a
+            >
+            <form action="/logout" method="POST">
+                <button
+                    type="submit"
+                    class="text-lg text-danger hover:text-red-600"
+                >
+                    Logout
+                </button>
+            </form>
+            <% } else { %>
+            <a
+                href="/login"
+                class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out"
+                >Login</a
+            >
+            <a
+                href="/register"
+                class="text-lg text-primary hover:text-blue-600 transition-all ease-in-out"
+                >Register</a
+            >
+            <% } %>
+        </div>
+    </div>
+</nav>
+
+<!-- Scripts for Mobile Dropdown -->
+<script>
+    const mobileHamburgerMenu = document.getElementById("mobileHamburgerMenu");
+    const mobileDropdownMenu = document.getElementById("mobileDropdownMenu");
+
+    mobileHamburgerMenu.addEventListener("click", () => {
+        mobileDropdownMenu.classList.toggle("hidden");
+    });
+</script>

@@ -1,4 +1,4 @@
-const Blog = require('../Models/blog');
+const Blog = require('../../Models/blog');
 
 // Get All Blogs
 exports.getAllBlogs = async () => {

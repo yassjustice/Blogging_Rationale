@@ -1,0 +1,48 @@
+<!-- footer.ejs -->
+
+<footer class="bg-dark text-textColor py-8 mt-12">
+    <div class="container mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 px-6">
+      <!-- Logo Section -->
+      <div class="text-center md:text-left">
+        <a href="/" class="text-3xl font-bold text-primary hover:text-blue-600 transition-all ease-in-out">
+          <span class="text-accent">B</span>log<span class="text-accent">G</span>enius
+        </a>
+        <p class="text-lg mt-2 text-textColor">Your go-to place for insightful blogs.</p>
+      </div>
+  
+      <!-- Navigation Links -->
+      <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+        <a href="/" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">Home</a>
+        <a href="/blogs" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">Blogs</a>
+        <a href="/about" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">About</a>
+        <a href="/contact" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">Contact</a>
+      </div>
+  
+      <!-- Social Media Links -->
+      <div class="flex space-x-6 justify-center md:justify-end">
+        <a href="#" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="#" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="text-lg text-textColor hover:text-primary transition-all ease-in-out">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+  
+      <!-- Copyright Section -->
+      <div class="mt-6 text-center text-sm text-textColor">
+        <p>&copy; <span id="year"></span> BlogGenius. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts for dynamic year -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  

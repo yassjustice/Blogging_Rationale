@@ -50,16 +50,16 @@ console.log("Routes loaded successfully");
 app.use("/", routes);
 
 // Export the app for Vercel serverless function
-if (process.env.VERCEL) {
+// if (process.env.VERCEL) {
     // This is the Vercel deployment
     module.exports = app;
-} else {
-    // This is local development, start the server locally
-    const PORT = process.env.PORT || 7500;
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
-}
+// } else {
+//     // This is local development, start the server locally
+//     const PORT = process.env.PORT || 7500;
+//     app.listen(PORT, () => {
+//         console.log(`Server is running on port ${PORT}`);
+//     });
+// }
 
 // Error handling middleware
 app.use((err, req, res, next) => {

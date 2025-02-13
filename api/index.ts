@@ -43,10 +43,20 @@ app.use((req, res, next) => {
 });
 
 // Connect to MongoDB
-mongoose
-    .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("MongoDB connected"))
-    .catch((err) => console.error("MongoDB connection error:", err));
+const connectDB = async () => {
+    if (mongoose.connection.readyState >= 1) return;
+    try {
+        await mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("MongoDB connected");
+    } catch (err) {
+        console.error("MongoDB connection error:", err);
+    }
+};
+
+connectDB();
 
 // Routes
 app.use("/", routes);

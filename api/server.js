@@ -44,6 +44,8 @@ mongoose
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.error("MongoDB connection error:", err));
 
+console.log("Server is running...");
+console.log("Routes loaded successfully");
 
 app.use("/", routes);
 

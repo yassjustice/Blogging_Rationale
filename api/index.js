@@ -1,16 +1,15 @@
 const express = require("express");
-const app = express();
 const bodyparser = require("body-parser");
 const cookies = require("cookie-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
-// Load routes
-const routes = require("../Routes");
-
+const routes = require("../Routes"); // Update path
 const flash = require("connect-flash");
 const session = require("express-session");
+
+const app = express();
 
 // Middleware
 app.use(
@@ -31,38 +30,26 @@ app.use(cors());
 
 // Middleware to set user globally for all routes
 app.use((req, res, next) => {
-    const user = req.cookies.jwtToken
-        ? jwt.verify(req.cookies.jwtToken, process.env.JWT_SECRET)
-        : null;
-    res.locals.user = user;
+    try {
+        const user = req.cookies.jwtToken
+            ? jwt.verify(req.cookies.jwtToken, process.env.JWT_SECRET)
+            : null;
+        res.locals.user = user;
+    } catch (err) {
+        console.error("JWT Verification Error:", err.message);
+        res.locals.user = null;
+    }
     next();
 });
 
 // Connect to MongoDB
 mongoose
-    .connect(process.env.MONGODB_URI)
+    .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.error("MongoDB connection error:", err));
 
-console.log("Server is running...");
-console.log("Routes loaded successfully");
-
+// Routes
 app.use("/", routes);
 
-// Export the app for Vercel serverless function
-// if (process.env.VERCEL) {
-    // This is the Vercel deployment
-    module.exports = app;
-// } else {
-//     // This is local development, start the server locally
-//     const PORT = process.env.PORT || 7500;
-//     app.listen(PORT, () => {
-//         console.log(`Server is running on port ${PORT}`);
-//     });
-// }
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send("Something broke!");
-});
+// Export app for Vercel
+module.exports = app;

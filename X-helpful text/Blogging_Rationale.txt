@@ -1,0 +1,86 @@
+Blogging_Rationale
+├── .env
+├── .gitignore
+├── .vercel
+│   ├── cache
+│   ├── project.json
+│   └── README.txt
+├── api
+│   └── server.js
+├── config
+│   └── cloudinary.js
+├── Controllers
+│   ├── auth
+│   │   ├── login.js
+│   │   ├── logout.js
+│   │   └── register.js
+│   ├── blog
+│   │   ├── allBlogs.js
+│   │   ├── blog.js
+│   │   ├── dashboard.js
+│   │   └── editBlog.js
+│   └── common
+│       ├── api.js
+│       └── helpers.js
+├── Middlewares
+│   ├── authenticate.js
+│   ├── checknamedup.js
+│   └── preventaccess.js
+├── Models
+│   ├── blog.js
+│   ├── data.txt
+│   ├── db.json
+│   └── user.js
+├── package-lock.json
+├── package.json
+├── Public
+│   ├── css
+│   │   ├── add copy.css
+│   │   ├── add.css
+│   │   ├── allblog.css
+│   │   ├── dash.css
+│   │   ├── edit.css
+│   │   ├── home.css
+│   │   ├── Login copy.css
+│   │   ├── Login.css
+│   │   ├── navbar.css
+│   │   ├── register copy.css
+│   │   ├── register.css
+│   │   └── styleguide.css
+│   ├── images
+│   └── js
+│       ├── clienteditblog.js
+│       └── clientmyblog.js
+├── README.md
+├── Routes
+│   └── index.js
+├── test.js
+├── vercel copy.json
+├── Views
+│   ├── auth
+│   │   ├── login.ejs
+│   │   └── register.ejs
+│   ├── blogs
+│   │   ├── add.ejs
+│   │   ├── allBlogs.ejs
+│   │   ├── edit.ejs
+│   │   ├── no-blogs.ejs
+│   │   └── single.ejs
+│   ├── dashboard
+│   │   └── index.ejs
+│   ├── dashboard.ejs
+│   ├── editBlog.ejs
+│   ├── home.ejs
+│   ├── layouts
+│   │   ├── index.ejs
+│   │   └── mainLayout.ejs
+│   ├── myblogs.ejs
+│   ├── partials
+│   │   ├── footer.ejs
+│   │   ├── header.ejs
+│   │   └── navbar.ejs
+│   └── register.ejs
+└── X-helpful text
+    ├── designchoices.txt
+    ├── designGuide.txt
+    └── viewsstructure.txt

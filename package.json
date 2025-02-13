@@ -2,10 +2,10 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "A blogging platform",
-  "main": "api/server.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node api/server.js",
-    "dev": "nodemon api/server.js"
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js"
   },
   "author": "Your Name",
   "license": "ISC",

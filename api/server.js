@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 // Load routes
-const routes = require("./Routes");
+const routes = require("../Routes");
 
 const flash = require("connect-flash");
 const session = require("express-session");

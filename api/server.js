@@ -6,6 +6,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
+// Load routes
+const routes = require("./Routes");
 
 const flash = require("connect-flash");
 const session = require("express-session");
@@ -42,8 +44,7 @@ mongoose
     .then(() => console.log("MongoDB connected"))
     .catch((err) => console.error("MongoDB connection error:", err));
 
-// Load routes
-const routes = require("../Routes");
+
 app.use("/", routes);
 
 // Export the app for Vercel serverless function
